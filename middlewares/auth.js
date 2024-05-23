@@ -24,19 +24,22 @@ const authenticateToken = async (req, res, next) => {
       const data = verifyAccessToken(token);
       const userId=data.userId;
       console.log(userId);
-      const user = await User.find({_id:userId});
+      const user = await User.findById(userId);
       if(!user)
         return res.status(401).msg({status:"failed",msg:"user not found"});
+
+      await user.save();
       req.user = user;
       next();
     } catch (err) {
+      console.log(err.message)
       res.status(401).send({status:"failed",msg:"user not found"});
     }
   };
 
 const checkAdmin = (req, res, next) => {
     if (!req.user || !req.user.isAdmin) {
-      return res.status(403).msg({status:"failed",msg:"Not Authorized"});
+      return res.status(403).send({status:"failed",msg:"Not Authorized"});
     }
     next();
   };

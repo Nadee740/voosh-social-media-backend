@@ -1,8 +1,8 @@
-const { default: mongoose } = require('mongoose')
+
 const mongooose=require('mongoose')
 const url = process.env.DB_LINK
 
-
+console.log(url)
 const connectionParams={
     useNewUrlParser: true,
     useUnifiedTopology: true 

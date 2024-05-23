@@ -1,15 +1,18 @@
-const express=require('express')
 require('dotenv').config();
+require('./db/mongoose')
+const express=require('express')
+
+require('./passportConfig')
+
 const cors = require('cors');
 const passport=require('passport');
 const session=require('express-session');
-const User = require('./models/user');
 const app=express()
 const port=8000
-require('./db/mongoose')
+
 app.use(cors())
 app.use(express.json())
-require('./passportConfig')
+
 app.use(express.json());
 
 

@@ -39,15 +39,21 @@ const storage = new Storage({
 const bucketName = process.env.BUCKET_NAME;
 const bucket = storage.bucket(bucketName);
 
+function generateUniqueId() {
+    const timestamp = new Date().getTime();
+    const random = Math.floor(Math.random() * 1000);
+    return `${timestamp}-${random}`;
+  }
+  
 const uploadUserProfilePicture = async (req, res) => {
     try {
         if (!req.file && !req.body.profileLink) {
             return res.status(400).send({ status: "failed", msg: "not Profile Picture Uploaded" });
         }
-
+        // console.log(req.user)
         if (req.file) {
             const file = req.file;
-            const filename = file.originalname;
+            const filename = file.originalname +generateUniqueId();
             const gcsFile = bucket.file(filename);
             const stream = gcsFile.createWriteStream({
                 metadata: {

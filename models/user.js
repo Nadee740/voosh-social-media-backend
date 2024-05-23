@@ -1,8 +1,18 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt');
 const jwt=require('jsonwebtoken')
-const encryptionUtils= require('../middlewares/encryptionUtils')
-const userSchema = mongoose.Schema(
+const CryptoJS = require("crypto-js");
+
+function encrypt(data) {
+    let encJson = CryptoJS.AES.encrypt(JSON.stringify(data), process.env.ENCRYPTION_KEY).toString();
+    return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(encJson));
+  }
+  
+function decrypt(data) {
+    let decData = CryptoJS.enc.Base64.parse(data).toString(CryptoJS.enc.Utf8);
+    return CryptoJS.AES.decrypt(decData, process.env.ENCRYPTION_KEY).toString(CryptoJS.enc.Utf8);
+}
+const userSchema = new mongoose.Schema(
     {
         
         name: { 
@@ -86,7 +96,6 @@ userSchema.pre('save', async function(next) {
     const user = this;
     if (user.isModified('password') || (this.isNew && this.password)) {
         try {
-            console.log("sa")
             const salt = await bcrypt.genSalt(10);
             const hashedPassword = await bcrypt.hash(user.password, salt);
             user.password = hashedPassword;
@@ -97,7 +106,7 @@ userSchema.pre('save', async function(next) {
     }
     else if(user.isModified('googleId')){
         try {
-            const encryptedData=await encryptionUtils.encrypt(user.googleId)
+            const encryptedData=encrypt(user.googleId)
             user.googleId=encryptedData.toString();
             next();
           } catch (err) {
@@ -137,6 +146,7 @@ userSchema.methods.generateTokens = async function () {
 }
 
 userSchema.methods.isValidPassword = async function (password) {
+
     if(!this.password)
         return false;
     return await bcrypt.compare(password, this.password);
@@ -144,4 +154,5 @@ userSchema.methods.isValidPassword = async function (password) {
 
 
 const User = mongoose.model("users", userSchema)
+
 module.exports = User
