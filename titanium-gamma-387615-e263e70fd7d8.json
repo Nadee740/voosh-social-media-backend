@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "titanium-gamma-387615",
+  "private_key_id": "e263e70fd7d8c819c8622796c5faef9f732a02c3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCqexDrGSv1Si98\nrTdIQJOQQARRNQxZpy8NRNaJxX2dP/CKEVImqS/R+FJUyrO+namJkWIa0T/d+8Xq\nLQ7ubu3VbAnxIH1afsZyPqUbu9aBXhh6O3UtDl1xWt3Fgz2S98uDuFALAIC1iaTC\nQ548+7qdZwFF/Nsa4QXFzn7vC5eTCG2Hc+c0A5vPTVeyq0FME8u14y6CN0Jvn42y\nE9ie6d1ocYsBi9J4dnk9CZ3iMoZOZMJcGgtedCkaT/PTave4b1fbyffRSqWRffQA\ns4lz0rF5PPaGCC2CqLa2NRL1N0zGQ1xGFq39j6aYQhyzQnwdGOp65aJItXaS+Bpb\nHXigwWlhAgMBAAECggEAD7Ubv52ScvJCjSk527q0yJNYEny3G5ePeph/b92LZQQG\nz0x9646mbPaFQhy/EkQH4o32TQ7p5IkVw4LNSmNcHyWU25ZTwRUchwWF7u06prFw\nbeqxMX/jqisQyJRUBbOLw8zP9djhAwOgnj7erd2/uaWg9L2HGTiRxezwaGlYA4rv\nv0kLvECHo9He3wZmRqVm17O/iQDGcekcP7fJcVplQ4PVtViacFo6uOestzxLPRJW\nyOTiV6tgHozY+0sKHqMntqNHoIpEyNUtnY2XjdUS0R8CrzzqJZDfgftUkIQZCuuO\n6ZQR0VNTf/bK8/OG+iPBuLQhOpGn0jozsoMqKdLyFQKBgQDTgLVNr7T4ZCj3Ud8H\nmMoRoKqlNyiK39K7rlJLkuZhTGbzBU7iAr2DgjLQwA5uOFcduNFEquo3lOOcaSR+\nyvSJ8DBWH4cHkdZi/TBKJtt008l9GtsSlbqRfKtuWwmqqZ6Vl/xv0XF4kWhQeJTp\nFwCzGgu6qwB8DS/X1em8flU5GwKBgQDOWPVx4NTz7W5XjNJGdaTfDDGaAffVI5i5\nKfQCYOH657FI1ruZS8PEhEl/fw7cqPViefLCWn3I6L5s6wCO7j7MqD9jUtvE3w3D\nhL2NFDatB4F5IB/VRu+Klcw83cHhv0p3S5NO+PuB5tC+IuqAB808+ByRZU+xT1v0\ntTbQtgarMwKBgGh3IBXY/XfacOmHhLOJ4fTG+MJV9i5x0vJkbb1qN2RDim3qZ0X2\nuIhmHJdC5V3Hci/6A1L5YGpHngy5Wg9OS25+NkGznMw+WjfWeq2Fd8vCd7jVNPN/\nBQGrJDmDuciTswKMaWEJgBRfLbjhdhuTAwNzj+uJXtnm4YSn4aT6eTmVAoGAHHDk\ne6q6j1h1cfnF7dI/REMA/zIwP59laHgg2scRvqx6ogh+2PU5aXe2Ta1slftvvwAB\n9snUNoHl5UtKy2iJHVo/SmhcRDleQ0mjerODibvUG6bS3GmnkJlvCiCinYPpNqIj\nDqqAt/nhYaOcYMMyhanI/j1Ri6XdjdAAWyoLp0MCgYEAsqlYMyx5RmDXqDUsBTfC\n9wfqrANzM1heF3ajWPQF8nhWvbv0By0IAxxo13W6Epux7gz/oOfE91rQ4LhwoCYZ\n2eefErp5MiSXtXvR/QwhEOxEiLXRyR7sv+2daZJJLtrYtSp6DYTLR4m64Ow5ovBj\n55PYqO/AHkYgxEA7Jiwt5Us=\n-----END PRIVATE KEY-----\n",
+  "client_email": "cloud-vision@titanium-gamma-387615.iam.gserviceaccount.com",
+  "client_id": "110704974216483452486",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloud-vision%40titanium-gamma-387615.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
