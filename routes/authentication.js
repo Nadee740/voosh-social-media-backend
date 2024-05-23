@@ -32,7 +32,7 @@ router.get('/v1/google-sign-in',
   passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/v1/google-sign-in/callback',
-  passport.authenticate('google', { failureRedirect: '/api/auth/v1/google-sign-in/failed' }),
+  passport.authenticate('google', {failureRedirect: '/api/auth/v1/google-sign-in/failed' }),
   async (req, res) => {
     const { user, accessToken, refreshToken } = req.user;
     res.status(200).send({

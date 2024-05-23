@@ -1,6 +1,7 @@
 const User = require("../models/user")
 
 
+
 const viewProfiles =async(req,res)=>{
     try{
         const user=await User.find();

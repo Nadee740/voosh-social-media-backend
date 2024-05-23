@@ -32,7 +32,7 @@ passport.use(new LocalStrategy({
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: '/api/auth/v1/google-sign-in/callback/'
+    callbackURL: process.env.DEPLOYED_URL + '/api/auth/v1/google-sign-in/callback/'
   },
 async (googleAccessToken, googleRefreshToken,profile, done) => {
     const user=await User.findOne({email:profile.emails[0].value})
@@ -52,7 +52,8 @@ async (googleAccessToken, googleRefreshToken,profile, done) => {
       return done(null,{user:newUser,accessToken,refreshToken})
     }
     if(user.googleId!=profile.id)
-      {user.googleId=profile.id}
+      {
+        user.googleId= await encryptionUtils.encrypt(profile.id)}
     const {accessToken,refreshToken} =await user.generateTokens();
     await user.save()
     return done(null,{user,accessToken,refreshToken})

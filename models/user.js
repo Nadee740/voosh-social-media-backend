@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt');
 const jwt=require('jsonwebtoken')
-const authenticationMiddlewares = require('../middlewares/auth')
+const encryptionUtils= require('../middlewares/encryptionUtils')
 const userSchema = mongoose.Schema(
     {
         
@@ -97,7 +97,7 @@ userSchema.pre('save', async function(next) {
     }
     else if(user.isModified('googleId')){
         try {
-            const encryptedData=await authenticationMiddlewares.encrypt(user.googleId)
+            const encryptedData=await encryptionUtils.encrypt(user.googleId)
             user.googleId=encryptedData.toString();
             next();
           } catch (err) {

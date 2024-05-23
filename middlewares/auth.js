@@ -1,6 +1,6 @@
 const jwt=require('jsonwebtoken')
 const User = require('../models/user')
-const CryptoJS = require("crypto-js");
+
 
 
 const verifyAccessToken = (token) => {
@@ -23,7 +23,8 @@ const authenticateToken = async (req, res, next) => {
     try {
       const data = verifyAccessToken(token);
       const userId=data.userId;
-      const user = await User.findById(userId);
+      console.log(userId);
+      const user = await User.find({_id:userId});
       if(!user)
         return res.status(401).msg({status:"failed",msg:"user not found"});
       req.user = user;
@@ -40,13 +41,4 @@ const checkAdmin = (req, res, next) => {
     next();
   };
 
-function encrypt(data) {
-    let encJson = CryptoJS.AES.encrypt(JSON.stringify(data), process.env.ENCRYPTION_KEY).toString();
-    return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(encJson));
-  }
-  
-function decrypt(data) {
-    let decData = CryptoJS.enc.Base64.parse(data).toString(CryptoJS.enc.Utf8);
-    return CryptoJS.AES.decrypt(decData, process.env.ENCRYPTION_KEY).toString(CryptoJS.enc.Utf8);
-  }
-module.exports={authenticateToken,verifyAccessToken, verifyRefreshToken,checkAdmin,encrypt,decrypt}
+module.exports={authenticateToken,verifyAccessToken, verifyRefreshToken,checkAdmin}
