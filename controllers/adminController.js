@@ -6,7 +6,7 @@ const viewProfiles =async(req,res)=>{
         const user=await User.find();
         res.status(200).send({
             status:"ok",
-            msg:"got user profiles",
+            msg:"got user profiles admin",
             data:user
         })
 
